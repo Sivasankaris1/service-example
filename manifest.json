@@ -30,5 +30,22 @@
       "name": "colossus-write-logs"
     }
   ],
+  "settingsSchema": {
+    "title": "Sankari-settings",
+    "type": "object",
+    "access": "public",
+    "properties": {
+      "apiKey": {
+        "title": "API Key",
+        "description": "Enter the API Key ",
+        "type": "string"
+      },
+      "appToken": {
+        "title": "VTEX App Token key",
+        "description": "Enter the app token",
+        "type": "string"
+      }
+    }
+  },
   "$schema": "https://raw.githubusercontent.com/vtex/node-vtex-api/master/gen/manifest.schema"
 }
