@@ -11,7 +11,7 @@ export default class Customer extends ExternalClient {
 
     public async createCustomerData(payload: any){
         const savedData = await this.http.post<Promise<any>>(
-            `/api/dataentities/CL/documents`,payload,
+            `/api/dataentities/SD/documents`,payload,
             await this.getHeaders()
         )
         console.log("saved" + savedData)
@@ -27,18 +27,18 @@ export default class Customer extends ExternalClient {
 
     public async getCustomerData() {
         const customerData = await this.http.get<Promise<any>>(
-            `/api/dataentities/CL/Search?_fields=DocumentId,name,email`,
+            `/api/dataentities/SD/Search?_fields=id,name,lname,Age,Subject&_schema=sankarischema`,
             await this.getHeaders()
         )
         return customerData
     }
 
     public async updateCustomerData(payload: any, id: string) {
-        // console.log("in update")
-        // const headersData = await this.getHeaders()
-        // console.log("headers in create" + JSON.stringify(headersData))
+        console.log("in update")
+        const headersData = await this.getHeaders()
+        console.log("headers in create" + JSON.stringify(headersData))
         const updateCustomerData = await this.http.put<Promise<any>>(
-          `/api/dataentities/CL/documents/${id}`, payload,
+          `/api/dataentities/SD/documents/${id}`, payload,
           await this.getHeaders()
         )
         if (updateCustomerData) {
