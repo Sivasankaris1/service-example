@@ -13,6 +13,22 @@
     "customer": {
       "path": "/v1/customer",
       "public": true
+    },
+    "updateCustomer": {
+      "path": "/v1/customer/:id",
+      "public": true
+    },
+    "contact": {
+      "path": "/v1/contact/create",
+      "public": true
+    },
+    "captcha": {
+      "path": "/v1/captcha",
+      "public": true
+    },
+    "listContact": {
+      "path": "/v1/contact",
+      "public": true
     }
   }
 }

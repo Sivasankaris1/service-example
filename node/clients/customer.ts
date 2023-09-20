@@ -34,10 +34,7 @@ export default class Customer extends ExternalClient {
     }
 
     public async updateCustomerData(payload: any, id: string) {
-        console.log("in update")
-        const headersData = await this.getHeaders()
-        console.log("headers in create" + JSON.stringify(headersData))
-        const updateCustomerData = await this.http.put<Promise<any>>(
+        const updateCustomerData = await this.http.patch<Promise<any>>(
           `/api/dataentities/SD/documents/${id}`, payload,
           await this.getHeaders()
         )
@@ -52,7 +49,7 @@ export default class Customer extends ExternalClient {
 
     public async deleteCustomerData(id:string) {
         const deleteData = await this.http.delete<Promise<any>>(
-            `/api/dataentities/CL/documents/${id}`,
+            `/api/dataentities/SD/documents/${id}`,
             await this.getHeaders()
         )
         return deleteData

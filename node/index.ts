@@ -8,6 +8,9 @@ import { createCustomer } from './middlewares/create-customer'
 import { getCustomer } from './middlewares/get-customer'
 import { updateCustomer } from './middlewares/update-customer'
 import { deleteCustomer } from './middlewares/delete-customer'
+import { createContact } from './middlewares/create-contact'
+import { getCaptcha } from './middlewares/captcha'
+import { getContact } from './middlewares/get-contact'
 
 const TIMEOUT_MS = 800
 
@@ -59,8 +62,19 @@ export default new Service({
     customer: method({
       POST: [createCustomer],
       GET: [getCustomer],
-      PUT: [updateCustomer],
       DELETE: [deleteCustomer]
+    }),
+    updateCustomer: method({
+      PATCH: [updateCustomer]
+    }),
+    contact: method({
+      POST: [createContact]
+    }),
+    listContact: method({
+      GET: [getContact]
+    }),
+    captcha: method({
+      GET: [getCaptcha]
     })
   },
 })
