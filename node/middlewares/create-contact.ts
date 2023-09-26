@@ -3,13 +3,14 @@ import { json } from 'co-body'
 export async function createContact(ctx:Context, next: () => Promise<any>) {
     try {
         const body = await json(ctx.req)
-       // console.log(body)
+        console.log("body" + JSON.stringify(body))
         const { clients: { contact } } = ctx
         const resp = await contact.createContactData(body)
-        if (resp.data) {
-           return resp.data
-        }
-        ctx.status = 200
+        console.log("resp " + JSON.stringify(resp))
+        // if (resp.data) {
+            ctx.status = 200 
+        // }
+       
         return next()
     }catch(e) { 
         const err: any = e

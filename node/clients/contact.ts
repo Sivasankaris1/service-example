@@ -11,7 +11,7 @@ export default class Contact extends ExternalClient {
 
     public async createContactData(payload: any){
         console.log("in create contact")
-        console.log("payload" + JSON.stringify(payload))
+        //const data = JSON.stringify(payload)
         const saveContactData = await this.http.post<Promise<any>>(
             `/api/dataentities/SC/documents`,payload,
             await this.getHeaders()
@@ -24,13 +24,16 @@ export default class Contact extends ExternalClient {
               data: saveContactData
             }
         } else {
-            return saveContactData
+            return {
+                success: false,
+                message: "Error in saving data"
+            }
         }
     }
 
     public async getContactData() {
         const contactData = await this.http.get<Promise<any>>(
-            `/api/dataentities/SC/Search?_fields=id,name,email,subject,message,file`,
+            `/api/dataentities/SC/Search?_fields=id,name,email,subject,message,file&_schema=contactSchema`,
             await this.getHeaders()
         )
         return contactData
