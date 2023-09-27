@@ -11,6 +11,7 @@ import { deleteCustomer } from './middlewares/delete-customer'
 import { createContact } from './middlewares/create-contact'
 import { getCaptcha } from './middlewares/captcha'
 import { getContact } from './middlewares/get-contact'
+import { getContactByScroll } from './middlewares/get-contact'
 
 const TIMEOUT_MS = 800
 
@@ -72,6 +73,9 @@ export default new Service({
     }),
     listContact: method({
       GET: [getContact]
+    }),
+    scrollContact: method({
+      GET: [getContactByScroll]
     }),
     captcha: method({
       GET: [getCaptcha]

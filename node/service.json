@@ -29,6 +29,10 @@
     "listContact": {
       "path": "/v1/contact",
       "public": true
+    },
+    "scrollContact": {
+      "path": "/v1/contact/list",
+      "public": true
     }
   }
 }
